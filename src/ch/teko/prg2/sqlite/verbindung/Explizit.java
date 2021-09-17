@@ -1,11 +1,19 @@
-package ch.teko.prg2.sqlite;
+package ch.teko.prg2.sqlite.verbindung;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Main {
+public class Explizit {
     public static void main(String[] args) {
+
+        // Treiber explizit registrieren
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         // Pfad zur Datenbank
         String url = "jdbc:sqlite:/Users/glausm/Desktop/JDBCTutorial/chinook.db";
 
